@@ -1,5 +1,5 @@
 {
-  "name": "dechex",
+	"name": "dechex",
 	"displayName": "dechex",
 	"description": "",
 	"version": "0.0.1",
@@ -10,16 +10,27 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:dechex.helloWorld"
+		"onView:dechexmain"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
-			{
-				"command": "dechex.helloWorld",
-				"title": "Hello World"
-			}
-		]
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"icon": "$(symbol-operator)",
+					"id": "dechex",
+					"title": "Decimal - Hex"
+				}
+			]
+		},
+		"views": {
+			"dechex": [
+				{
+					"id": "dechexmain",
+					"name": "Current Document"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
