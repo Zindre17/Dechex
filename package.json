@@ -10,10 +10,32 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onView:dechexmain"
+		"onView:dechexdoc",
+		"onView:dechexline"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"commands": [
+			{
+				"command": "dechex.navigate",
+				"title": "Navigate to",
+				"enablement": "false"
+			},
+			{
+				"command": "dechex.convert",
+				"title": "Convert",
+				"icon": "$(sync)"
+			}
+		],
+		"menus": {
+			"view/item/context": [
+				{
+					"command": "dechex.convert",
+					"group": "inline",
+					"when": "viewItem == hex"
+				}
+			]
+		},
 		"viewsContainers": {
 			"activitybar": [
 				{
@@ -26,8 +48,12 @@
 		"views": {
 			"dechex": [
 				{
-					"id": "dechexmain",
-					"name": "Current Document"
+					"id": "dechexline",
+					"name": "Line"
+				},
+				{
+					"id": "dechexdoc",
+					"name": "Document"
 				}
 			]
 		}
